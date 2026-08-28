@@ -1,0 +1,4 @@
+interface:
+  display_name: "Observatory Onboarding"
+  short_description: "Map existing knowledge and tune AI Radar"
+  default_prompt: "Use $onboard-observatory to interview me, map my existing knowledge system, and configure Observatory and AI Radar safely."

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "research-workspace",
+    "name": "Research Workspace",
+    "description": "A cited workspace for finding, connecting, and reusing knowledge.",
+    "goals": [
+      "Improve retrieval quality and make research easier to reuse."
+    ],
+    "keywords": [
+      "agent memory",
+      "citations",
+      "context graph",
+      "knowledge graph",
+      "retrieval",
+      "research workflow"
+    ],
+    "exclude_keywords": [
+      "customer support ticket"
+    ],
+    "core_ideas": [
+      {
+        "id": "evidence-linked-memory",
+        "name": "Evidence-linked memory",
+        "description": "Recall should preserve provenance and expose conflicts instead of manufacturing certainty.",
+        "keywords": ["agent memory", "citations", "provenance", "recall", "retrieval"]
+      },
+      {
+        "id": "connected-knowledge",
+        "name": "Connected knowledge",
+        "description": "Projects, concepts, research, and sources become more useful through explicit relationships.",
+        "keywords": ["context graph", "knowledge graph", "graph rag", "graphrag"]
+      }
+    ]
+  },
+  {
+    "id": "support-assistant",
+    "name": "Support Assistant",
+    "description": "An assistant that helps a team resolve customer questions safely.",
+    "goals": [
+      "Reduce response time without lowering answer quality."
+    ],
+    "keywords": [
+      "customer support",
+      "guardrail",
+      "help center",
+      "response quality",
+      "support evaluation",
+      "ticket triage"
+    ],
+    "exclude_keywords": [
+      "model architecture benchmark"
+    ],
+    "core_ideas": [
+      {
+        "id": "grounded-answers",
+        "name": "Grounded answers",
+        "description": "Responses should cite approved help material and be honest when evidence is missing.",
+        "keywords": ["grounded answer", "help center", "citations", "response quality"]
+      },
+      {
+        "id": "human-review",
+        "name": "Human review at consequential steps",
+        "description": "Automation can prepare work while people retain control over consequential actions.",
+        "keywords": ["approval", "guardrail", "human review", "ticket triage"]
+      }
+    ]
+  }
+]

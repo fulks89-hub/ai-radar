@@ -1,0 +1,60 @@
+name: Passive AI discovery
+
+on:
+  pull_request:
+  schedule:
+    - cron: '17 5,13,21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Collect passive signals
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m radar.discover
+      - name: Collect owner-shared inbox
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m radar.inbox
+      - name: Collect owner X bookmarks when configured
+        env:
+          X_USER_ACCESS_TOKEN: ${{ secrets.X_USER_ACCESS_TOKEN }}
+          X_USER_ID: ${{ secrets.X_USER_ID }}
+          # Disabled by default. Verify current X API pricing before raising this.
+          X_WEEKLY_BUDGET_USD: '0.00'
+          X_MAX_PAGES_PER_RUN: '2'
+        run: python -m radar.x_bookmarks
+      - name: Build daily and weekly briefs
+        run: python -m radar.report
+      - name: Install dashboard dependencies
+        working-directory: dashboard
+        run: npm ci --no-audit --no-fund
+      - name: Validate and build React dashboard
+        working-directory: dashboard
+        run: npm run check && npm run build
+      - name: Upload discovery reports
+        uses: actions/upload-artifact@v7
+        with:
+          name: ai-radar-signals
+          path: reports/**
+      - name: Upload React dashboard
+        uses: actions/upload-artifact@v7
+        with:
+          name: ai-radar-dashboard
+          path: dashboard/dist/**

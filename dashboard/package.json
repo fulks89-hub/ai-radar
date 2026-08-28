@@ -1,0 +1,21 @@
+{
+  "name": "airadar-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/App.js && node --check src/main.js && node --check scripts/sync-data.mjs && node --check scripts/brain-capture.mjs && node --check server.mjs && node --check vite.config.js",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/sync-data.mjs && vite build",
+    "dev": "node scripts/sync-data.mjs && vite --host 127.0.0.1",
+    "start": "node scripts/sync-data.mjs && vite build && node server.mjs",
+    "start:share": "AI_RADAR_READ_ONLY=1 node scripts/sync-data.mjs && AI_RADAR_READ_ONLY=1 vite build && AI_RADAR_READ_ONLY=1 node server.mjs"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "vite": "8.2.0"
+  }
+}

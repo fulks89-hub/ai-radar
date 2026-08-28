@@ -1,0 +1,17 @@
+dashboard/node_modules/
+dashboard/dist/
+dashboard/public/data/
+captures/
+.env
+.env.*
+*.key
+*.pem
+__pycache__/
+.pytest_cache/
+reports/*.json
+reports/*.md
+reports/history/*.json
+dashboard/public/data/
+reports/*.json
+reports/*.md
+reports/history/*.json

@@ -1,0 +1,40 @@
+{
+  "keywords": [
+    "agent", "agents", "rag", "retrieval", "reasoning", "post-training",
+    "rlhf", "reinforcement learning", "multimodal", "world model", "memory",
+    "context engineering", "tool use", "computer use", "coding agent",
+    "inference", "distillation", "alignment", "benchmark", "eval",
+    "transformer", "mixture of experts", "robotics"
+  ],
+  "github_repositories": [
+    "openai/codex",
+    "anthropics/anthropic-cookbook",
+    "huggingface/transformers"
+  ],
+  "github_commit_repositories": [
+    {"repo": "openai/codex", "watch": "Coding agents"},
+    {"repo": "anthropics/anthropic-cookbook", "watch": ""},
+    {"repo": "huggingface/transformers", "watch": ""}
+  ],
+  "rss_feeds": [
+    {"name": "OpenAI", "url": "https://openai.com/news/rss.xml", "origin": "official:openai"}
+  ],
+  "agent_edition_feeds": [
+    {
+      "name": "The AI Daily Brief",
+      "url": "https://www.aidailybrief.ai/agent.json",
+      "origin": "editorial:ai-daily-brief",
+      "always_on": true,
+      "include_nuggets": true,
+      "edition_limit": 5,
+      "nugget_limit": 30
+    }
+  ],
+  "official_pages": [
+    {"name": "OpenAI", "url": "https://openai.com/news/"},
+    {"name": "Anthropic", "url": "https://www.anthropic.com/news"},
+    {"name": "Google DeepMind", "url": "https://deepmind.google/blog/"}
+  ],
+  "arxiv_categories": ["cs.AI", "cs.LG", "cs.CL"],
+  "hacker_news_limit": 50
+}
